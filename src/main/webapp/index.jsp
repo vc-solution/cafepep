@@ -23,6 +23,9 @@
 <ul>
     <li><a href="parameters.jsp">Server info page</a></li>
 </ul>
-
+<h2>Log out</h2>
+<ul>
+    <li><a href="logout.jsp">Click here to log oute</a></li>
+</ul>
 </body>
 </html>

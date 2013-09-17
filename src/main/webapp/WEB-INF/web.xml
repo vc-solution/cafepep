@@ -31,28 +31,17 @@
         <res-sharing-scope>Shareable</res-sharing-scope>
     </resource-ref>
     -->
-    <security-constraint>
-        <display-name>protected-pages</display-name>
-        <web-resource-collection>
-            <web-resource-name>protected-pages</web-resource-name>
-            <url-pattern>/protected/*</url-pattern>
-        </web-resource-collection>
-        <auth-constraint>
-            <role-name>authenticatedUser</role-name>
-        </auth-constraint>
-        <user-data-constraint>
-            <transport-guarantee>NONE</transport-guarantee>
-        </user-data-constraint>
-    </security-constraint>
-    <login-config>
-        <auth-method>FORM</auth-method>
-        <realm-name>authentication-realm</realm-name>
-        <form-login-config>
-            <form-login-page>/login.jsp</form-login-page>
-            <form-error-page>/loginError.jsp</form-error-page>
-        </form-login-config>
-    </login-config>
-    <security-role>
-        <role-name>authenticatedUser</role-name>
-    </security-role>
+     <listener>
+        <listener-class>org.apache.shiro.web.env.EnvironmentLoaderListener</listener-class>
+    </listener>
+
+    <filter>
+        <filter-name>shiroFilter</filter-name>
+        <filter-class>org.apache.shiro.web.servlet.ShiroFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>shiroFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+        
+    </filter-mapping>
 </web-app>

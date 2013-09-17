@@ -121,7 +121,7 @@ conn.close();
     </tr>
     <tr>
         <td>Schema</td>
-        <td><%= conn.getSchema() %>
+        <td>null
         </td>
     </tr>
     <tr>
