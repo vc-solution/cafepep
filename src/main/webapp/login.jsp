@@ -3,7 +3,7 @@
     <title>JaaS Login Page</title>
 </head>
 
-<h2>Login</h2>
+<h2>Test</h2>
     <form name="loginform" method="post">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" />
