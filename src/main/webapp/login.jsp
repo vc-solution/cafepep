@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>JaaS Login Page</title>
+    <title>Login Page</title>
 </head>
 
 <h2>Test</h2>
