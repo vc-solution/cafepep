@@ -1,31 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head><title>Glassfish 4 Clickstart</title></head>
-<body>
-<h1>Glassfish 4 Clickstart</h1>
-
-<h2>Ejb Demo</h2>
-<ul>
-    <li><a href="status">EJB status page</a></li>
-</ul>
-<h2>Database Demo</h2>
-
-<ul>
-    <li><a href="datasource.jsp">Raw JNDI DataSource demo</a></li>
-</ul>
-
-<h2>JaaS Security Demo</h2>
-
-<ul>
-    <li><a href="protected/parameters.jsp">Protected page</a></li>
-</ul>
-
-<h2>Server Info</h2>
-<ul>
-    <li><a href="parameters.jsp">Server info page</a></li>
-</ul>
-<h2>Log out</h2>
-<ul>
-    <li><a href="logout.jsp">Click here to log oute</a></li>
-</ul>
-</body>
+<%@ page session="false" %>
+<%	response.sendRedirect("protected/index.xhtml"); %>
 </html>
