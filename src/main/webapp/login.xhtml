@@ -31,12 +31,8 @@
         </h:panelGrid>
     </h:form>
 <h:form id="Register">
-	<h:panelGroup>
-		<h:outputLabel id="usernameLabel" for="username" value="User Email" />
-		<h:inputText id="username" binding="#{username_input}" />
-	</h:panelGroup>
-	<h:commandButton value="Register"
-		action="#{registrationController.register(username_input.value)}" />
+	If you are not registere please follow the <a href="registration.xhtml">link</a>!
+	
 </h:form>
 
 </html>

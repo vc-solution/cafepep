@@ -2,6 +2,7 @@ package localdomain.localhost;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 
 
 @Entity
@@ -17,11 +18,22 @@ public class User {
 	 private String password;
 	 
 	 
+	 private String verification_key;
+	 
+	 
 	 public Long getId(){
 		return id;
 	 }
 	 
-	 public void setId(long id){
+	 public String getVerification_key() {
+		return verification_key;
+	}
+
+	public void setVerification_key(String verification_key) {
+		this.verification_key = verification_key;
+	}
+
+	public void setId(long id){
 		 this.id=id;
 	 }
 	 
