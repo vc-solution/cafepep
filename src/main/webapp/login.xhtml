@@ -2,37 +2,156 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
 
- <h:form>
-        <h:messages />
- 
-        <h2>Login Page</h2>
-        <p>You can use "admin" and "secret" to login.</p>
-        <h:panelGrid columns="3">
- 
-            <h:outputLabel for="username" value="User Name:" />
-            <h:inputText id="username" value="#{loginController.username}"
-                required="true" label="Username" />
-            <h:message for="username" />
- 
-            <h:outputLabel for="password" value="Password:" />
-            <h:inputSecret id="password" value="#{loginController.password}"
-                label="Password" />
-            <h:message for="password" />
- 
-            <h:outputLabel for="rememberMe" value="Remember Me:" />
-            <h:selectBooleanCheckbox id="rememberMe"
-                value="#{loginController.rememberMe}" />
- 
-            <h:commandButton action="#{loginController.authenticate()}"
-                value="Login" />
- 
-        </h:panelGrid>
-    </h:form>
-<h:form id="Register">
-	If you are not registere please follow the <a href="registration.xhtml">link</a>!
-	
-</h:form>
+<head>
+
+<meta charset="utf-8" />
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro'
+	rel='stylesheet' type='text/css' />
+<style type="text/css">
+body {
+	font-family: 'Source Sans Pro', sans-serif;
+	color: #666666;
+	background: #f6e6b4; /* Old browsers */
+	background: -moz-radial-gradient(center, ellipse cover, #f6e6b4 0%, #2980b9 100%);
+	/* FF3.6+ */
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%,
+		color-stop(0%, #f6e6b4), color-stop(100%, #2980b9));
+	/* Chrome,Safari4+ */
+	background: -webkit-radial-gradient(center, ellipse cover, #f6e6b4 0%, #2980b9 100%);
+	/* Chrome10+,Safari5.1+ */
+	background: -o-radial-gradient(center, ellipse cover, #f6e6b4 0%, #2980b9 100%);
+	/* Opera 12+ */
+	background: -ms-radial-gradient(center, ellipse cover, #f6e6b4 0%, #2980b9 100%);
+	/* IE10+ */
+	background: radial-gradient(ellipse at center, #f6e6b4 0%, #2980b9 100%);
+	/* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient(        startColorstr='#f6e6b4',
+		endColorstr='#2980b9', GradientType=1);
+	/* IE6-9 fallback on horizontal gradient */
+	background-attachment: fixed;
+}
+
+h1 {
+	text-align: center;
+}
+
+table {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+hr.fancy-line {
+	border: 0;
+	height: 1px;
+	background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0),
+		rgba(215, 215, 215, 0.75), rgba(0, 0, 0, 0));
+	background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0),
+		rgba(215, 215, 215, 0.75), rgba(0, 0, 0, 0));
+	background-image: -ms-linear-gradient(left, rgba(0, 0, 0, 0),
+		rgba(215, 215, 215, 0.75), rgba(0, 0, 0, 0));
+	background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0),
+		rgba(215, 215, 215, 0.75), rgba(0, 0, 0, 0));
+	box-shadow: 0px -2px 4px rgba(136, 136, 136, 0.75);
+}
+
+.login_fenster {
+	margin-top: 15%;
+	width: 100%;
+	overflow: auto;
+}
+
+.formular {
+	padding: 15px;
+	width: 550px;
+	margin: 5px;
+	background-color: #ecf0f1;
+	box-shadow: 5px 5px 5px #777777;
+}
+
+.container {
+	margin-left: auto;
+	margin-right: auto;
+	width: 550px;
+	background-color: #e67e22;
+}
+
+.fliesender {
+	display: inline;
+	float: left;
+}
+</style>
+
+<title>Willkommen bei Café PEP - LOGIN</title>
+
+</head>
+
+
+<body>
+
+	<div class="login_fenster">
+
+		<div class="container">
+
+			<div class="formular fliesender">
+
+				<h1>CaféPEP - Login</h1>
+
+				<hr class="fancy-line" />
+				<h:form>
+				<table cellpadding="7">
+               
+					<tr>
+						<td><h:outputLabel for="username" value="Email:" /></td>
+						<td><h:inputText id="username"
+								value="#{loginController.username}" required="true"
+								label="Username" validatorMessage="Email format is not valid" requiredMessage="Please enter your email address.">
+								<f:validateRegex
+									pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+							</h:inputText> 
+						 </td>
+						 <td><h:message for="username" errorStyle="color:red; display:block" /></td>
+					</tr>
+
+					<tr>
+						<td><h:outputLabel for="password" value="Password:" /></td>
+						<td><h:inputSecret id="password"
+								value="#{loginController.password}" label="Password" /> <h:message
+								for="password" /></td>
+					</tr>
+
+					<tr>
+						<td><h:outputLabel for="rememberMe" value="Remember Me:" /></td>
+						<td><h:selectBooleanCheckbox id="rememberMe"
+								value="#{loginController.rememberMe}" /></td>
+					</tr>
+
+					<tr>
+						<td><h:commandButton
+								action="#{loginController.authenticate()}" value="Login" /></td>
+					</tr>
+
+
+
+					<tr>
+						<td colspan="3">If you are not registered please follow this
+							<a href="registration.xhtml">link</a>!
+						</td>
+
+					</tr>
+				
+				</table>
+				
+				
+				</h:form>
+			</div>
+
+		</div>
+
+	</div>
+
+</body>
 
 </html>
