@@ -44,7 +44,7 @@ public class RegistrationService {
 		try {
 		email.setFrom("macherey@vc-solution.de");
 		email.setSubject("CafePEP Account Verification ");
-		email.setMsg(url+"/activation.xhtml?key="+user.getVerification_key());
+		email.setMsg(url+"/activation.xhtml?key="+user.getVerification_key().replace("+", "%2B"));
 		email.addTo(user.getEmail());
 		email.send();
 		} catch (EmailException e) {
