@@ -1,5 +1,9 @@
 package localdomain.localhost;
 
+
+
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -15,9 +19,16 @@ public class ActivationService {
 	{
 		Boolean valid=false;
 		Query q = em.createQuery("SELECT u FROM User u WHERE u.verification_key = "+ "'"+key+"'");
+		System.out.println("SELECT u FROM User u WHERE u.verification_key = "+ "'"+key+"'");
 	     
     	try{ 
-            User user = (User) q.getSingleResult();
+//            User user = (User) q.getSingleResult();
+    		List results = q.getResultList();
+    		User user = null;
+    		if(!results.isEmpty()){
+    		    // ignores multiple results
+    		    user = (User) results.get(0);
+    		}
             if(user!=null)
             {
             	valid=true;
@@ -28,7 +39,7 @@ public class ActivationService {
             }
             }  
     		catch(Exception e){ 	          
-               
+               System.out.println(e.getMessage());
             } 
     	return valid;
 	}

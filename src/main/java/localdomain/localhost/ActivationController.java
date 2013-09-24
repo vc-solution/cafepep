@@ -25,6 +25,7 @@ public class ActivationController {
 
     @PostConstruct
     public void init() {
+    	System.out.println(FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("key"));
     	valid=as.isValid(FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("key"));
     }
 
