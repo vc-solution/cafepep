@@ -44,7 +44,8 @@ public class LoginController {
                             .toString()));
             return "/login";
         }
-        return "protected/index.xhtml?faces-redirect=true";
+
+        return "/protected/index.xhtml?faces-redirect=true";
  
     }
  
