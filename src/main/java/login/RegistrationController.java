@@ -1,4 +1,4 @@
-package localdomain.localhost;
+package login;
 
 import java.security.MessageDigest;
 

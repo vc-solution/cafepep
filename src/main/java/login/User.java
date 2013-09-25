@@ -1,4 +1,4 @@
-package localdomain.localhost;
+package login;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;

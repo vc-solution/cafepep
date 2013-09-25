@@ -1,4 +1,4 @@
-package localdomain.localhost;
+package login;
 
 import javax.annotation.ManagedBean;
 import javax.annotation.PostConstruct;

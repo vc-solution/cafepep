@@ -1,4 +1,4 @@
-package localdomain.localhost;
+package login;
 
 import java.util.logging.Logger;
 import javax.enterprise.inject.Model;
