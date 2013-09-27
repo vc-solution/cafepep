@@ -32,12 +32,11 @@
 
 				<hr class="fancy-line" />
 
-
+              
 				<h:form>
 
 					
-						<p:messages id="messages" showDetail="true" autoUpdate="true" />
-						
+						  <p:growl id="growl" showDetail="true" sticky="true" /> 
 
                            <table cellpadding="7">
                            
@@ -53,9 +52,6 @@
 										<f:validateRegex
 											pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
 									</p:inputText>
-								</td>
-								<td>
-									<p:message for="email" errorStyle="color:red; display:block" />
 								</td>
 							</tr>
 
@@ -100,14 +96,14 @@
 							<tr>
 								<td>
 									<p:commandButton action="#{registrationController.register()}"
-										value="Register"  />
+										value="Register" update="growl"/>
 								</td>
 							</tr>
 						
 
 
                    </table>
-				
+				  <p:outputLabel value="Username already exists" rendered="#{registrationController.entityNotExists}" />
 				</h:form>
 			</div>
 

@@ -57,7 +57,7 @@ public class LoginController {
         } catch (Exception e) {
             log.warning(e.toString());
         }
-        return "login.xhtml";
+        return "login.xhtml?faces-redirect=true";
     }
  
     public String getUsername() {
