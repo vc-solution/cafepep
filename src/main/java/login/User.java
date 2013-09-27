@@ -12,7 +12,11 @@ public class User {
 	 private Long id;
 	 
 	 @NotNull
+	 @Column(unique = true)
 	 private String email;
+	 
+	 @NotNull
+	 private String name;
 	 
 	 @NotNull 
 	 private String password;
@@ -45,12 +49,20 @@ public class User {
 		 this.email=email;
 	 }
      
-     public String getPassword(){
+     public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getPassword(){
  		return password;
  	 }
  	 
  	 public void setPassword(String password){
- 		 this.password=password;
+ 		 this.password=Encoder.hashAndEncodePassword(password);
  	 }
 	 
 	 

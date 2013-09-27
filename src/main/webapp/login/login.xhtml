@@ -3,9 +3,10 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 
-<head>
+<h:head>
 
 <meta charset="utf-8" />
 <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro'
@@ -86,10 +87,10 @@ hr.fancy-line {
 
 <title>Willkommen bei Café PEP - LOGIN</title>
 
-</head>
+</h:head>
 
 
-<body>
+<h:body>
 
 	<div class="login_fenster">
 
@@ -102,37 +103,36 @@ hr.fancy-line {
 				<hr class="fancy-line" />
 				<h:form>
 				
-				
+				 <p:growl id="growl" showDetail="true" sticky="true" /> 
 				<table cellpadding="7">
                
 					<tr>
-						<td><h:outputLabel for="username" value="Email:" /></td>
-						<td><h:inputText id="username"
+						<td><p:outputLabel for="username" value="Email:" /></td>
+						<td><p:inputText id="username"
 								value="#{loginController.username}" required="true"
 								label="Username" validatorMessage="Email format is not valid" requiredMessage="Please enter your email address.">
 								<f:validateRegex
 									pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
-							</h:inputText> 
+							</p:inputText> 
 						 </td>
-						 <td><h:message for="username" errorStyle="color:red; display:block" /></td>
+						 
 					</tr>
 
 					<tr>
-						<td><h:outputLabel for="password" value="Password:" /></td>
-						<td><h:inputSecret id="password"
-								value="#{loginController.password}" label="Password" /> <h:message
-								for="password" /></td>
+						<td><p:outputLabel for="password" value="Password:" /></td>
+						<td><p:password id="password"
+								value="#{loginController.password}" label="Password"  required="true" requiredMessage="Please enter a password" /></td>
 					</tr>
 
 					<tr>
-						<td><h:outputLabel for="rememberMe" value="Remember Me:" /></td>
-						<td><h:selectBooleanCheckbox id="rememberMe"
+						<td><p:outputLabel for="rememberMe" value="Remember Me:" /></td>
+						<td><p:selectBooleanCheckbox id="rememberMe"
 								value="#{loginController.rememberMe}" /></td>
 					</tr>
 
 					<tr>
-						<td><h:commandButton
-								action="#{loginController.authenticate()}" value="Login" /></td>
+						<td><p:commandButton
+								action="#{loginController.authenticate()}" value="Login" update="growl" /></td>
 					</tr>
 
 
@@ -154,6 +154,6 @@ hr.fancy-line {
 
 	</div>
 
-</body>
+</h:body>
 
 </html>

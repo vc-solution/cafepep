@@ -73,7 +73,7 @@ public class LoginController {
     }
  
     public void setPassword(String password) {
-        this.password = password;
+        this.password = Encoder.hashAndEncodePassword(password);
     }
  
     public boolean getRememberMe() {
