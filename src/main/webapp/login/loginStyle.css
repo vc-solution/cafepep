@@ -1,0 +1,77 @@
+body {
+	font-family: 'Source Sans Pro', sans-serif;
+	color: #666666;
+	background: #f6e6b4; /* Old browsers */
+	background: -moz-radial-gradient(center, ellipse cover, #f6e6b4 0%, #2980b9 100%);
+	/* FF3.6+ */
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%,
+		color-stop(0%, #f6e6b4), color-stop(100%, #2980b9));
+	/* Chrome,Safari4+ */
+	background: -webkit-radial-gradient(center, ellipse cover, #f6e6b4 0%, #2980b9 100%);
+	/* Chrome10+,Safari5.1+ */
+	background: -o-radial-gradient(center, ellipse cover, #f6e6b4 0%, #2980b9 100%);
+	/* Opera 12+ */
+	background: -ms-radial-gradient(center, ellipse cover, #f6e6b4 0%, #2980b9 100%);
+	/* IE10+ */
+	background: radial-gradient(ellipse at center, #f6e6b4 0%, #2980b9 100%);
+	/* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient(                     startColorstr='#f6e6b4',
+		endColorstr='#2980b9', GradientType=1);
+	/* IE6-9 fallback on horizontal gradient */
+	background-attachment: fixed;
+}
+
+h1 {
+	text-align: center;
+}
+
+table {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+hr.fancy-line {
+	border: 0;
+	height: 1px;
+	background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0),
+		rgba(215, 215, 215, 0.75), rgba(0, 0, 0, 0));
+	background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0),
+		rgba(215, 215, 215, 0.75), rgba(0, 0, 0, 0));
+	background-image: -ms-linear-gradient(left, rgba(0, 0, 0, 0),
+		rgba(215, 215, 215, 0.75), rgba(0, 0, 0, 0));
+	background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0),
+		rgba(215, 215, 215, 0.75), rgba(0, 0, 0, 0));
+	box-shadow: 0px -2px 4px rgba(136, 136, 136, 0.75);
+}
+
+.login_fenster {
+	margin-top: 15%;
+	width: 100%;
+	overflow: auto;
+}
+
+.formular {
+	padding: 15px;
+	width: 550px;
+	margin: 5px;
+	background-color: #ecf0f1;
+	box-shadow: 5px 5px 5px #777777;
+}
+
+.container {
+	margin-left: auto;
+	margin-right: auto;
+	width: 550px;
+	background-color: #e67e22;
+}
+
+.fliesender {
+	display: inline;
+	float: left;
+}
+
+
+.ui-widget,
+.ui-widget .ui-widget {
+font-size: 12px !important;
+}
