@@ -40,8 +40,7 @@ public class LoginController {
             log.warning(e.getMessage());
             FacesContext.getCurrentInstance().addMessage(
                     null,
-                    new FacesMessage("Login Failed: " + e.getMessage(), e
-                            .toString()));
+                    new FacesMessage("Login Failed: ", "Invalid Username or Password!"));
             return "/login";
         }
 
