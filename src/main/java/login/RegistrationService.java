@@ -36,7 +36,7 @@ public class RegistrationService {
 		    
 		    }
 		    finally{
-		    	em.close();
+		    	
 		    }
 
 	}

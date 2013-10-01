@@ -47,7 +47,7 @@ public class ActivationService {
                
             } 
     	    finally{
-    	    	em.close();
+    	    
     	    }
     	return valid;
 	}
