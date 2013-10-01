@@ -21,7 +21,7 @@ public class LoginService {
 		List results = q.getResultList();
 		User user = null;
 		if(!results.isEmpty()){
-		    // ignores multiple results
+		    // ihgnores multiple results
 			
 		    user = (User) results.get(0);
 		}
