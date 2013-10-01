@@ -30,7 +30,7 @@ public class RegistrationService {
 		
 			em.persist(user);
 			em.flush();
-		
+		    em.close();
 
 	}
 
