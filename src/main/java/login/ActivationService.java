@@ -19,7 +19,7 @@ public class ActivationService {
 	{
 		Boolean valid=false;
 		Query q = em.createQuery("SELECT u FROM User u WHERE u.verification_key = "+ "'"+key+"'");
-		System.out.println("SELECT u FROM User u WHERE u.verification_key = "+ "'"+key+"'");
+		
 	     
     	try{ 
 //            User user = (User) q.getSingleResult();
@@ -32,6 +32,8 @@ public class ActivationService {
             if(user!=null)
             {
             	valid=true;
+            	user.setVerification_key(null);
+            	em.flush();
             }
             else
             {

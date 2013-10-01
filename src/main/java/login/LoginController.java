@@ -1,17 +1,26 @@
 package login;
 
 import java.util.logging.Logger;
+
+import javax.annotation.ManagedBean;
 import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
+import javax.persistence.Query;
+
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 
+@ManagedBean
 @Model
 public class LoginController {
  
+	@Inject
+	LoginService loginService;
+	
     String username;
     String password;
     boolean rememberMe = false;
@@ -35,21 +44,31 @@ public class LoginController {
  
         try {
             currentUser.login(token);
+            
+            if(!loginService.checkActivation(username)){
+            	
+            	logout(false);
+            }
+            else{
+            	return "/protected/index.xhtml?faces-redirect=true";
+            }
+            
+            
+            
         } catch (AuthenticationException e) {
             // Could catch a subclass of AuthenticationException if you like
             log.warning(e.getMessage());
-            FacesContext.getCurrentInstance().addMessage(
-                    null,
-                    new FacesMessage("Login Failed: " + e.getMessage(), e
-                            .toString()));
-            return "/login";
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"LOGIN ERROR","Login failed! Username does not exist or password is wrong!"));
+            return "";
         }
-
-        return "/protected/index.xhtml?faces-redirect=true";
+        
+         
+        return "";
+        
  
     }
  
-    public String logout() {
+    public String logout(boolean activated) {
  
         Subject currentUser = SecurityUtils.getSubject();
         try {
@@ -57,7 +76,15 @@ public class LoginController {
         } catch (Exception e) {
             log.warning(e.toString());
         }
-        return "login.xhtml?faces-redirect=true";
+        
+        if(!activated){
+        	FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"LOGIN ERROR","Please activate your account first!"));
+        	log.warning("Please activate your account first!");
+        	return "";
+        }
+        else{
+        	return "/login/login.xhtml?faces-redirect=true";
+        }
     }
  
     public String getUsername() {
