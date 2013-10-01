@@ -58,7 +58,10 @@ public class LoginController {
         } catch (AuthenticationException e) {
             // Could catch a subclass of AuthenticationException if you like
             log.warning(e.getMessage());
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"LOGIN ERROR","Login failed! Username does not exist or password is wrong!"));
+
+            FacesContext.getCurrentInstance().addMessage(
+                    null,
+                    new FacesMessage("Login Failed: ", "Invalid Username or Password!"));
             return "";
         }
         
