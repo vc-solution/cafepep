@@ -15,12 +15,15 @@ public class LoginService {
 	EntityManager em;
 	
 	public boolean checkActivation(String username){
+		
+		try{
 		Query q = em.createQuery("SELECT u FROM User u WHERE u.email = "+ "'"+username+"'");
 		
 		
 		
+		
 		List results = q.getResultList();
-		em.close();
+		
 		User user = null;
 		
 		if(!results.isEmpty()){
@@ -37,5 +40,16 @@ public class LoginService {
 		else{
 			return false;
 		}
+		}
+		catch(Exception e){
+			
+		}
+		
+		finally{
+			em.close();
+		}
+		
+		return true;
+	
 	}
 }

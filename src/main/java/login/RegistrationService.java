@@ -27,10 +27,17 @@ public class RegistrationService {
 
 	public void register(User user) throws EntityExistsException {
 
-		
+		    try{
 			em.persist(user);
 			em.flush();
-		    em.close();
+		    
+		    }
+		    catch(Exception e){
+		    
+		    }
+		    finally{
+		    	em.close();
+		    }
 
 	}
 

@@ -34,18 +34,21 @@ public class ActivationService {
             	valid=true;
             	user.setVerification_key(null);
             	em.flush();
-            	em.close();
+            	
             }
             else
             {
             	valid=false;
-            	em.close();
+            	
             }
             }  
     		catch(Exception e){ 	          
                System.out.println(e.getMessage());
-               em.close();
+               
             } 
+    	    finally{
+    	    	em.close();
+    	    }
     	return valid;
 	}
 	
